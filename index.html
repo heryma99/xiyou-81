@@ -66,6 +66,28 @@ h1{font-size:20px;font-weight:500;margin:0 0 6px}
 .ch b{color:#D3D1C7;font-weight:500}
 
 .c img.art{display:block;width:100%;aspect-ratio:2/1;object-fit:cover;border-radius:8px;background:#121211}
+
+/* ===== 放大交互（本段由补丁追加）===== */
+.c{overflow:hidden}
+.c img.art{display:block;width:100%;aspect-ratio:2/1;object-fit:cover;border-radius:8px;background:#1C1C1B;transition:transform .32s cubic-bezier(.2,.7,.3,1),filter .32s}
+.c:hover img.art{transform:scale(1.09);filter:saturate(1.08)}
+.c svg.art{transition:transform .32s cubic-bezier(.2,.7,.3,1)}
+.c:hover svg.art{transform:scale(1.09)}
+#lb{position:fixed;inset:0;z-index:999;display:none;align-items:center;justify-content:center;background:rgba(6,6,6,.92);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:20px}
+#lb.on{display:flex}
+#lb .lbw{display:flex;flex-direction:column;align-items:center;gap:12px;animation:lbIn .28s cubic-bezier(.2,.8,.3,1)}
+@keyframes lbIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+#lb img{max-width:94vw;max-height:76vh;object-fit:contain;border-radius:12px;background:#111;box-shadow:0 26px 80px rgba(0,0,0,.8);cursor:zoom-out;display:block}
+#lb .lbcap{display:block;max-width:78vw;text-align:center;font-size:13px;line-height:1.8;color:#B4B2A9}
+#lb .lbcap b{display:block;border:0;border-radius:0;padding:0;margin:0 0 4px;color:#FAC775;font-size:15px;font-weight:500;background:none}
+#lb button{background:none;border:0;color:#B4B2A9;cursor:pointer;line-height:1;font-family:inherit;padding:8px;transition:color .2s}
+#lb button:hover{color:#FAC775}
+#lb .lbclose{position:absolute;top:14px;right:18px;font-size:24px}
+#lb .lbpv,#lb .lbnx{position:absolute;top:50%;transform:translateY(-50%);font-size:40px}
+#lb .lbpv{left:6px}
+#lb .lbnx{right:6px}
+#lb .lbtip{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:11px;color:#7A7873}
+@media (max-width:640px){#lb .lbpv,#lb .lbnx{font-size:28px}#lb img{max-height:66vh}#lb .lbcap{font-size:12px;max-width:88vw}}
 </style>
 </head>
 <body>
@@ -125,6 +147,7 @@ v>
 
 <div class="hint">说明：插画为几何化示意（师徒四人、各路妖怪、山川河岳、关键道具），不是写实绘画；蛇形路线为阅读顺序示意，不代表真实地理方位。七类归属为编者判断，个别可商榷。</div>
 </div>
+<div id="lb"><button class="lbclose" type="button" aria-label="关闭">&#10005;</button><button class="lbpv" type="button" aria-label="上一难">&#8249;</button><button class="lbnx" type="button" aria-label="下一难">&#8250;</button><div class="lbw"><img id="lbi" alt=""><div class="lbcap" id="lbc"></div></div><div class="lbtip">点图片或空白处关闭 · 方向键翻页</div></div>
 <script>
 var A=function(x,y,s,t){return '<g transform="translate('+x+','+y+') scale('+s+')">'+t+'</g>';};
 var P=function(d,f,e){return '<path d="'+d+'" fill="'+f+'" '+(e||'')+'/>';};
@@ -383,9 +406,31 @@ html+=(k<idx.length)?cardHTML(idx[k]):'<div class="ph"></div>';}
 row.innerHTML=html;rt.appendChild(row);
 if(r<rows-1){lk=document.createElement('div');lk.className='link '+(dir==='ltr'?'right':'left');lk.innerHTML=drop();rt.appendChild(lk);}}
 var end=document.createElement('div');end.className='cap';end.innerHTML='<b>终点 · 灵山</b><span>取得真经，五圣成真</span>';rt.appendChild(end);
+/* ===== 点击放大（灯箱）===== */
+var lbEl=document.getElementById('lb'),lbi=document.getElementById('lbi'),lbc=document.getElementById('lbc'),lbCur=0;
+function artBig(no){return ART[no]?ART[no].replace(/^art\//,'art/big/'):'';}
+function lbDraw(i){var p=D[i].split('|'),no=p[0],src=artBig(no)||ART[no];if(!src)return false;
+lbCur=i;lbi.src=src;lbi.alt=p[2];
+lbc.innerHTML='<b style="display:block">第'+no+'难 · '+p[2]+'</b><span>'+p[4]+'</span>';return true;}
+function lbOpen(i){if(lbEl&&lbDraw(i))lbEl.classList.add('on');}
+function lbClose(){if(lbEl)lbEl.classList.remove('on');}
+function lbMove(d){var n=lbCur+d;if(n<0)n=80;if(n>80)n=0;lbDraw(n);}
+if(lbEl){
+lbEl.addEventListener('click',function(e){var t=e.target,cn=String(t.className||'');
+ if(t.tagName==='IMG'){lbClose();return;}
+ if(cn.indexOf('pv')>=0){lbMove(-1);return;}
+ if(cn.indexOf('nx')>=0){lbMove(1);return;}
+ lbClose();});
+document.addEventListener('keydown',function(e){if(!lbEl.classList.contains('on'))return;
+ if(e.key==='Escape'){lbClose();}
+ else if(e.key==='ArrowLeft'){lbMove(-1);}
+ else if(e.key==='ArrowRight'){lbMove(1);}});}
+
 rt.addEventListener('click',function(e){var el=e.target.closest('.c');if(!el)return;var ci=+el.getAttribute('data-i');
 if(ready&&lens[ci]!=null){len=lens[ci];playing=false;btnPP.textContent='▶ 播放';}
-show(ci);cards[ci]&&cards[ci].scrollIntoView({block:'center',behavior:'smooth'});});
+show(ci);
+if(e.target.closest('.art')){lbOpen(ci);return;}
+cards[ci]&&cards[ci].scrollIntoView({block:'center',behavior:'smooth'});});
 
 var stage=document.getElementById('stage'),ov=document.getElementById('ov');
 var btnPP=document.getElementById('pp'),btnRS=document.getElementById('rs'),btnFW=document.getElementById('fw'),sk=document.getElementById('sk'),stEl=document.getElementById('st');
@@ -480,5 +525,6 @@ else if(act==='stop'){ttsStop();}
 else if(act==='rate'){rate=rate>=1.4?0.8:+(rate+0.2).toFixed(1);t.textContent=rate.toFixed(1);}
 });}
 </script>
+
 </body>
 </html>
