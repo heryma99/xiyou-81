@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>西游记 · 九九八十一难路线全图</title>
+<style>
+:root{--bg:#1C1C1B;--card:#2C2C2A;--line:#444441;--tx:#EDEBE4;--tx2:#B4B2A9;--gold:#FAC775;--road:#EF9F27}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;font-size:14px}
+.page{max-width:1180px;margin:0 auto;padding:26px 20px 70px}
+h1{font-size:20px;font-weight:500;margin:0 0 6px}
+.sub{font-size:12px;color:var(--tx2);line-height:1.8;margin-bottom:14px}
+.lg{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--tx2);margin-bottom:14px}
+.lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+#dp{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--card);margin-bottom:18px;position:sticky;top:0;z-index:9}
+#dp .badge{display:inline-block;font-size:11px;padding:2px 9px;border-radius:10px;margin-right:8px}
+#dp .ttl{font-size:14px;font-weight:500}
+#dp .txt{margin-top:6px;font-size:12px;color:var(--tx2);line-height:1.7}
+.cap{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--gold);padding:6px 0}
+.cap b{display:inline-block;border:1px solid var(--gold);border-radius:999px;padding:3px 12px;font-weight:500}
+.route{display:flex;flex-direction:column}
+.row{display:flex;align-items:stretch;gap:10px}
+.c{flex:1 1 0;min-width:0;position:relative;border-radius:12px;padding:8px;cursor:pointer;border:1px solid rgba(255,255,255,.07);transition:transform .12s,border-color .12s}
+.c:hover{transform:translateY(-3px);border-color:var(--gold)}
+.c.seen{border-color:#5F5E5A}
+.c.now{border-color:var(--gold);box-shadow:0 0 0 2px rgba(250,199,117,.35);transform:translateY(-3px)}
+.c.done::after{content:"";position:absolute;right:8px;top:8px;width:7px;height:7px;border-radius:50%;background:#FAC775}
+.ph{flex:1 1 0;min-width:0;visibility:hidden}
+.chev.hide{visibility:hidden}
+.bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;font-size:12px;color:var(--tx2)}
+.bar button{background:#2C2C2A;color:var(--tx);border:1px solid var(--line);border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;font-family:inherit}
+.bar button.on{background:#633806;border-color:var(--gold);color:var(--gold)}
+.bar input[type=range]{flex:1 1 220px;min-width:140px;accent-color:#EF9F27}
+.stage{position:relative}
+#ov{position:absolute;left:0;top:0;pointer-events:none;overflow:visible;z-index:3}
+.c svg.art{display:block;width:100%;height:auto}
+.foot{display:flex;gap:6px;align-items:baseline;margin-top:5px;font-size:12px}
+.no{font-size:11px;opacity:.6}
+.chev{flex:0 0 20px;display:flex;align-items:center;justify-content:center}
+.link{display:flex;height:34px}
+.link.right{margin-left:auto;width:70px;justify-content:flex-end}
+.link.left{margin-right:auto;width:70px;justify-content:flex-start}
+.hint{font-size:11px;color:var(--tx2);margin-top:20px;border-top:1px solid var(--line);padding-top:12px;line-height:1.9}
+
+.tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.tags span{font-size:11px;padding:2px 9px;border-radius:9px;background:#3A3A38;color:#D3D1C7}
+.tags span.d{background:#501313;color:#F7C1C1}
+.tags span.i{background:#412402;color:#FAC775}
+.qs{margin-top:8px;font-size:12px;color:#FAC775;line-height:1.75}
+.sb details{border:1px solid #444441;border-radius:12px;background:#2C2C2A;padding:10px 14px;margin-bottom:10px}
+.sb summary{cursor:pointer;font-size:14px;font-weight:500}
+.sb .in{margin-top:10px;font-size:12px;color:#B4B2A9;line-height:1.95}
+.sb .in p{margin:0 0 7px}
+.sb .in b{color:#EDEBE4;font-weight:500}
+.sb .q{color:#FAC775}
+.sb .src{font-size:11px;color:#B4B2A9;line-height:1.85;border-top:1px dashed #444441;margin-top:14px;padding-top:10px}
+
+.tts{margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tts button{background:#3A3A38;color:#EDEBE4;border:1px solid #444441;border-radius:8px;padding:4px 11px;font-size:12px;cursor:pointer;font-family:inherit}
+.tts button:hover{border-color:#FAC775;color:#FAC775}
+.tts .rt{font-size:11px;color:#B4B2A9;margin-left:auto}
+.tts .rt b{color:#FAC775;cursor:pointer;font-weight:500}
+
+.ch{margin-top:7px;font-size:11px;color:#9A9891;line-height:1.6}
+.ch b{color:#D3D1C7;font-weight:500}
+
+.c img.art{display:block;width:100%;aspect-ratio:2/1;object-fit:cover;border-radius:8px;background:#121211}
+</style>
+</head>
+<body>
+<div class="page">
+<h1>西游记 · 九九八十一难路线动画</h1>
+<div class="sub">一条路，八十一站：点播放，看唐僧沿着这条蛇形路线一站一站走到灵山，每到一站弹出那一难的画与故事。<br>支持播放 / 倍速 / 拖动进度条 / 点击任意一站跳转。</div>
+<div class="lg">
+<span><i style="background:#3C3489"></i>前世债</span>
+<span><i style="background:#0C447C"></i>神佛设局</span>
+<span><i style="background:#791F1F"></i>有后台的妖</span>
+<span><i style="background:#633806"></i>野生妖</span>
+<span><i style="background:#72243E"></i>心魔旧债</span>
+<span><i style="background:#444441"></i>人间俗难</span>
+<span><i style="background:#085041"></i>自然险阻</span>
+<span><i style="background:transparent;border:1.5px solid #FAC775"></i>路线图出过场</span>
+</div>
+<div class="bar">
+<button id="pp">▶ 播放</button>
+<button class="sp on" data-s="2">2×</button>
+<button class="sp" data-s="4">4×</button>
+<button class="sp" data-s="8">8×</button>
+<button id="rs">重播</button>
+<button id="fw" class="on">跟随滚动</button>
+<input id="sk" type="range" min="0" max="1000" value="0">
+<span id="st">第 1 难 / 81</span>
+</div>
+<div id="dp">点「播放」，跟着师徒四人一站一站走到灵山；也可以直接点下方的任意一站。</div>
+<div class="stage" id="stage"><div class="route" id="rt"></div><svg id="ov" xmlns="http://www.w3.org/2000/svg"></svg></div>
+
+<div class="sb">
+<h3 style="font-size:15px;font-weight:500;margin:22px 0 8px">思辨专题 · 三个追问</h3>
+<div style="font-size:12px;color:#B4B2A9;line-height:1.8;margin-bottom:12px">框架转述自《整本书思辨阅读：〈西游记〉》（余党绪 编，导读 吴欣歆，上海教育出版社 2020）：母题「磨难与成长」，悟空成长三阶段「扩张 → 校准 → 超越」。下面三个议题分别对应三个追问：有没有捷径？敌人是外在的还是内在的？一个人能走多远？</div>
+<div style="border-left:2px solid #FAC775;padding:2px 0 2px 12px;margin:0 0 12px;font-size:12px;color:#D3D1C7;line-height:1.9">「最好能理智地成为自己想成为的样子，胡闹过也不要紧，校准人生的方向，秉持终身成长的信念，接受每一天的考验，努力实现自己认为最重要的角色。」<div style="color:#B4B2A9;margin-top:4px">—— 该书内容简介引述的导读者观点（《整本书思辨阅读：〈西游记〉》，上海教育出版社 2020）</div></div>
+<details><summary>议题一 · 云路与本路——成长有没有捷径？</summary><div class="in">
+<p><b>核心追问：</b>悟空一个筋斗就是十万八千里，为什么不直接把唐僧背到西天？</p>
+<p><b>原文落点：</b>第 2 回悟空学得筋斗云，一纵十万八千里；可唐僧不能飞，只能一步一步走。第 98 回如来对唐僧说：「圣僧，汝前世原是我之二徒……今喜皈依，秉我迦持，又乘吾教，取去真经，甚有功果。」——功果记在“走”的过程上，不只记在“取到”的结果上。</p>
+<p><b>要点（转述）：</b>云路是「术」，本路是「道」；真经不在西天，而在路上——在每一次降妖除魔、每一次动摇后的坚守、每一次冲突后的和解里。紧箍咒看似束缚，实为保护。</p>
+<p class="q"><b>可讨论：</b>① 如果取经只是把经书运回东土，为什么不能飞？② 你学习/工作里有没有“筋斗云式”的捷径？它省掉了什么？③ “过程比结果重要”这句话，什么时候是借口、什么时候是真相？</p>
+</div></details>
+<details><summary>议题二 · 妖魔与心魔——敌人是外在的还是内在的？</summary><div class="in">
+<p><b>核心追问：</b>妖怪从哪里来？为什么书里那么多妖怪是从天上来的？</p>
+<p><b>常见对照（据公开教学资料整理）：</b>白骨精＝猜疑与不信任（野生）；金角银角＝贪欲与占有欲（老君看炉童子）；红孩儿＝傲慢与叛逆（牛魔王之子）；六耳猕猴＝自我的另一面；黄眉＝对捷径的渴望（弥勒座下童子）。</p>
+<p><b>本项目自带的一条素材：</b>把 81 难按“坑是谁挖的”归类后，<b>有后台的妖 31 难 &gt; 野生妖 27 难</b>——野生妖多半当场打死，有背景的最后都被主人领走。妖怪“被消灭”了吗？还是只是被收回了？</p>
+<p><b>原文落点：</b>第 14 回观音对悟空：「你既有此心，待我到了东土，寻一个取经的人来，教他救你。你可跟他做个徒弟，入我佛门，再修正果。」</p>
+<p class="q"><b>可讨论：</b>① 打败外在的妖怪，和战胜内心的弱点，是同一件事吗？② “有后台的妖不死”是在讽刺规则，还是在说规则本就如此？③ 你自己的“心魔”，对应的是哪一个妖怪？</p>
+</div></details>
+<details><summary>议题三 · 个体与集体——一个人能走多远？</summary><div class="in">
+<p><b>核心追问：</b>这样一支问题团队（师父迂、师兄狂、八戒懒、沙僧闷），为什么能走到西天？</p>
+<p><b>要点（转述）：</b>不是靠谁完美，而是靠每个人不可替代——悟空的本事、唐僧的信念、八戒的烟火气、沙僧的踏实，缺一个都到不了。</p>
+<p><b>原文落点：</b>第 27—31 回三打白骨精，悟空被逐又归；第 57—58 回真假美猴王，二心相斗后仍要归队。离开与回来，构成团队的自我修复。</p>
+<p class="q"><b>可讨论：</b>① 团队里“最不讨喜”的成员，价值在哪？② 悟空被赶走后为什么回来——被迫还是自愿？从“别人让我做”到“我自己要做”，这一步是怎么发生的？③ 一个团队最该防的，是能力不足还是信念松动？</p>
+</div></details>
+<div class="src"><b>资料与说明（出处对位）</b><br>· <b>主源</b>：《整本书思辨阅读：〈西游记〉》，余党绪 编，导读 吴欣歆，上海教育出版社 2020 年 7 月第 1 版，588 页，ISBN 9787544499781。页面中的母题「磨难与成长」与悟空成长三阶段「扩张—校准—超越」，出自该册内容简介。<br>· <b>辅助</b>：议题（云路与本路／妖魔与心魔／个体与集体）与三重维度（外部威胁／内部动摇／诱惑考验），据余党绪「三题定位·思辨读写」框架的公开教学资料，含《〈西游记〉思辨读写导学全案》（西南师范大学出版社 2021，ISBN 9787569709247）、《〈西游记〉思辨读写学习手册》（长江文艺出版社 2021，ISBN 9787570221585）。<br>· <b>口径</b>：以上均为框架与观点的 <b>转述</b>，非原书原文照录；本页未获得该书逐难解读正文，故未作任何臆造或仿写。<br>· 81 难的三重维度归属与思辨问题系本项目自拟，可商榷、可逐条替换；<b>若与书中表述不同，以书为准</b>——提供页码即可校正。<br>· 《西游记》原文引句出自公版原著，已标回目。</div>
+</div>
+
+v>
+
+<div class="hint">说明：插画为几何化示意（师徒四人、各路妖怪、山川河岳、关键道具），不是写实绘画；蛇形路线为阅读顺序示意，不代表真实地理方位。七类归属为编者判断，个别可商榷。</div>
+</div>
+<script>
+var A=function(x,y,s,t){return '<g transform="translate('+x+','+y+') scale('+s+')">'+t+'</g>';};
+var P=function(d,f,e){return '<path d="'+d+'" fill="'+f+'" '+(e||'')+'/>';};
+var K=function(x,y,r,f,e){return '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+f+'" '+(e||'')+'/>';};
+var RB=function(x,y,w,h,f,rx){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+(rx||0)+'" fill="'+f+'"/>';};
+var LN=function(x1,y1,x2,y2,s,w,d){return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+s+'" stroke-width="'+(w||1.5)+'" '+(d?'stroke-dasharray="'+d+'" ':'')+'/>';};
+var EL=function(x,y,rx,ry,f,o){return '<ellipse cx="'+x+'" cy="'+y+'" rx="'+rx+'" ry="'+ry+'" fill="'+f+'" '+(o||'')+'/>';};
+var ST=function(d,s,w,d2){return '<path d="'+d+'" fill="none" stroke="'+s+'" stroke-width="'+(w||2)+'" '+(d2?'stroke-dasharray="'+d2+'" ':'')+'/>';};
+var MOOD='a';
+var CR=function(o){var h=o.hc,br=o.b||'#444441',k=o.k||br,s='',m=MOOD;
+if(o.e==='r')s+=K(-10,-2,3.2,h)+K(10,-2,3.2,h);
+if(o.e==='t')s+=P('M-11 -4 L-5 -9 L-3 -2 Z',h)+P('M11 -4 L5 -9 L3 -2 Z',h);
+if(o.e==='p')s+=P('M-8 -5 L-13 -17 L-2 -9 Z',h)+P('M8 -5 L13 -17 L2 -9 Z',h);
+if(o.e==='l')s+=EL(-5,-13,2.6,8.5,h)+EL(5,-13,2.6,8.5,h);
+if(o.m)s+=K(0,0,15,'#854F0B')+P('M0 -15 L5 -7 L-5 -7 Z','#854F0B')+P('M0 15 L5 7 L-5 7 Z','#854F0B')+P('M-15 0 L-7 5 L-7 -5 Z','#854F0B')+P('M15 0 L7 5 L7 -5 Z','#854F0B');
+if(o.h)s+=P('M-7 -7 L-10 -17 L-3 -10 Z','#EDEBE4')+P('M7 -7 L10 -17 L3 -10 Z','#EDEBE4');
+if(o.n)s+=P('M-2 -8 L3 -8 L1 -20 Z','#D3D1C7');
+s+=K(0,0,9,h);
+if(o.mk)s+=EL(0,2.5,5.6,4.6,'#F5C4B3');
+if(o.sn)s+=EL(0,3.2,4.6,3.4,o.snC||'#ED93B1')+K(-1.6,3.2,.8,'#993556')+K(1.6,3.2,.8,'#993556');
+if(o.sp)s+=K(-6,-3,1.5,'#2C2C2A')+K(-1,-5,1.5,'#2C2C2A')+K(4,-2,1.5,'#2C2C2A')+K(7,3,1.3,'#2C2C2A')+K(-3,4,1.3,'#2C2C2A');
+if(o.tg)s+=LN(-4,-6,4,-6,'#633806',1.3)+LN(-3,-9,3,-9,'#633806',1.3);
+if(m==='a'){s+=LN(-6.5,-3.5,-2,-1,'#1C1C1B',1.8)+LN(6.5,-3.5,2,-1,'#1C1C1B',1.8)+K(-3,1.2,1.5,'#1C1C1B')+K(3,1.2,1.5,'#1C1C1B')+P('M-4 4.5 Q0 9 4 4.5 Z','#712B13')+P('M-2.6 6.2 L-1.6 8.2 L-0.6 6.2 Z','#EDEBE4')+P('M0.6 6.2 L1.6 8.2 L2.6 6.2 Z','#EDEBE4');}
+else if(m==='s'){s+=K(-3,0.8,2.6,'#EDEBE4')+K(-3,1,1.1,'#1C1C1B')+K(3,0.8,2.6,'#EDEBE4')+K(3,1,1.1,'#1C1C1B')+K(0,5,1.8,'#712B13')+P('M-13 -6 q3.4 4.4 0 6.6 q-3.4 -2.2 0 -6.6 Z','#9FE1CB');}
+else{s+=ST('M-5.5 0 Q-3 2.4 -0.5 0','#2C2C2A',1.3)+ST('M0.5 0 Q3 2.4 5.5 0','#2C2C2A',1.3)+ST('M-2 4.5 Q0 6 2 4.5','#712B13',1.3);}
+if(m==='a')s+=LN(6,11,12.5,3.5,h,2.6)+LN(-6,11,-10.5,15.5,h,2.6);
+else if(m==='s')s+=LN(6,11,11,4,h,2.6)+LN(-6,11,-11,4,h,2.6);
+else s+=LN(6,11,9.5,16,h,2.6)+LN(-6,11,-9.5,16,h,2.6);
+s+=RB(-5,9,10,9,h,4)+P('M-6 17 L6 17 L4.5 24 L-4.5 24 Z',k);
+if(o.tl)s+=ST('M-5 11 q-9 -1 -7 -10',h,2);
+return s;};
+var PE=function(o){var s='',a,r,m=MOOD;
+if(o.halo){s+=K(0,-2,15,'none','stroke="'+o.halo+'" stroke-width="1.3"');
+for(a=0;a<8;a++){r=a*Math.PI/4;s+=LN(Math.cos(r)*19,Math.sin(r)*19-2,Math.cos(r)*24,Math.sin(r)*24-2,o.halo,1.3);}}
+if(o.hat==='monk')s+=P('M-9 -5 Q0 -16 9 -5 L7 -2 L-7 -2 Z','#FAC775')+K(0,-10,1.6,'#E24B4A');
+if(o.hat==='crown')s+=P('M-9 -6 L-5 -15 L0 -9 L5 -15 L9 -6 Z','#FAC775');
+if(o.hair)s+=P('M-9 -3 Q0 -14 9 -3 Q0 -7 -9 -3 Z','#2C2C2A');
+s+=K(0,0,8.5,'#F5C4B3');
+if(o.beard)s+=P('M-8 1 Q0 13 8 1 Q0 7 -8 1 Z','#2C2C2A');
+if(m==='a'){s+=LN(-6.5,-3,-2.5 -0.5,'#2C2C2A',1.5)+LN(6.5,-3,2.5 -0.5,'#2C2C2A',1.5)+K(-2.8,1,1.2,'#2C2C2A')+K(2.8,1,1.2,'#2C2C2A')+ST('M-3 5 Q0 3 3 5','#993556',1.3);}
+else if(m==='s'){s+=K(-3,0.6,2.4,'#FFFFFF')+K(-3,0.8,1,'#2C2C2A')+K(3,0.6,2.4,'#FFFFFF')+K(3,0.8,1,'#2C2C2A')+K(0,5,1.6,'#993556')+P('M12 -5 q3.2 4.2 0 6.2 q-3.2 -2 0 -6.2 Z','#9FE1CB');}
+else{s+=ST('M-5 0.5 Q-3 2.6 -1 0.5','#2C2C2A',1.2)+ST('M1 0.5 Q3 2.6 5 0.5','#2C2C2A',1.2)+ST('M-2.5 4.5 Q0 6 2.5 4.5','#993556',1.2);}
+s+=P('M-6.5 8 L6.5 8 L9 26 L-9 26 Z',o.robe||'#712B13');
+if(o.trim)s+=LN(-7.5,13,7.5,13,o.trim,1.2);
+if(m==='s')s+=LN(7,11,12,5,'#F5C4B3',2.4)+LN(-7,11,-12,5,'#F5C4B3',2.4);
+else if(m==='c')s+=LN(7,11,10.5,17,'#F5C4B3',2.4)+LN(-7,11,-10.5,17,'#F5C4B3',2.4);
+return s;};
+var I={};
+I.bgMtn=function(x,y,s){return A(x,y,s,P('M-56 8 L-20 -24 L4 8 Z','#3C3489')+P('M-10 8 L20 -30 L46 8 Z','#534AB7')+ST('M-95 8 L95 8','#5F5E5A',2));};
+I.bgWave=function(x,y,s){return A(x,y,s,ST('M-95 -8 q9 -8 18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0','#1D9E75',1.8)+ST('M-95 0 q9 -8 18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0','#0F6E56',1.6)+ST('M-95 8 q9 -8 18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0','#085041',1.6));};
+I.bgFlame=function(x,y,s){return A(x,y,s,P('M-56 8 C-62 -8 -52 -14 -48 -22 C-44 -14 -34 -8 -40 8 Z','#D85A30')+P('M-34 8 C-40 -14 -26 -20 -22 -34 C-16 -20 -4 -14 -10 8 Z','#E24B4A')+P('M-4 8 C-8 -8 2 -14 4 -26 C8 -14 18 -8 12 8 Z','#993C1D')+P('M30 8 C24 -6 34 -12 36 -22 C40 -12 48 -6 44 8 Z','#D85A30')+ST('M-95 8 L95 8','#5F5E5A',2));};
+I.bgForest=function(x,y,s){return A(x,y,s,P('M-62 8 L-42 -22 L-22 8 Z','#173404')+P('M-28 8 L-6 -30 L16 8 Z','#3B6D11')+P('M20 8 L42 -20 L64 8 Z','#173404')+ST('M-95 8 L95 8','#444441',2));};
+I.bgCity=function(x,y,s){return A(x,y,s,ST('M-85 8 L85 8','#5F5E5A',2)+RB(-72,-6,144,14,'#444441',2)+RB(-62,-24,20,32,'#5F5E5A',2)+RB(42,-24,20,32,'#5F5E5A',2)+P('M-62 -24 L-42 -24 L-52 -34 Z','#712B13')+P('M42 -24 L62 -24 L52 -34 Z','#712B13'));};
+I.bgPalace=function(x,y,s){return A(x,y,s,ST('M-85 8 L85 8','#5F5E5A',2)+RB(-66,-2,12,10,'#5F5E5A')+RB(54,-2,12,10,'#5F5E5A')+P('M-82 -2 L82 -2 L62 -20 L-62 -20 Z','#712B13')+P('M-46 -20 L46 -20 L30 -30 L-30 -30 Z','#993C1D'));};
+I.bgTemple=function(x,y,s){return A(x,y,s,ST('M-85 8 L85 8','#5F5E5A',2)+RB(-40,-2,10,10,'#5F5E5A')+RB(-5,-2,10,10,'#5F5E5A')+RB(30,-2,10,10,'#5F5E5A')+P('M-58 -2 L58 -2 L42 -18 L-42 -18 Z','#534AB7')+P('M-30 -18 L30 -18 L18 -26 L-18 -26 Z','#7F77DD'));};
+I.bgCave=function(x,y,s){return A(x,y,s,P('M-72 10 L-72 -6 Q0 -46 72 -6 L72 10 Z','#26215C')+ST('M-72 10 L72 10','#534AB7',2)+K(-40,-10,7,'#0F0F18')+K(40,-10,7,'#0F0F18'));};
+I.fingers=function(x,y,s){return A(x,y,s,RB(-26,-14,9,28,'#3C3489',3)+RB(-14,-24,9,38,'#3C3489',3)+RB(-2,-30,9,44,'#3C3489',3)+RB(10,-24,9,38,'#3C3489',3)+RB(22,-14,9,28,'#3C3489',3)+RB(-8,-42,17,13,'#FAC775',2)+LN(-5,-38,6,-32,'#A32D2D',1)+LN(6,-38,-5,-32,'#A32D2D',1));};
+I.tree=function(x,y,s){return A(x,y,s,LN(0,8,0,-10,'#888780',3)+K(0,-16,12,'#3B6D11')+K(-4,-19,2,'#F09595')+K(4,-14,2,'#F09595')+K(0,-24,2,'#F09595'));};
+I.gourd=function(x,y,s){return A(x,y,s,K(0,4,9,'#BA7517')+K(0,-8,6,'#BA7517')+LN(0,-14,2,-19,'#5F5E5A',2)+ST('M-9 2 Q0 10 9 2','#FAC775',1));};
+I.bottle=function(x,y,s){return A(x,y,s,P('M-6 -14 L6 -14 L4 -6 Q14 2 14 12 Q14 22 0 22 Q-14 22 -14 12 Q-14 2 -4 -6 Z','#9FE1CB')+K(0,8,5,'#E1F5EE'));};
+I.ring=function(x,y,s){return A(x,y,s,K(0,0,11,'none','stroke="#FAC775" stroke-width="3"')+K(0,0,17,'none','stroke="#EF9F27" stroke-width="1"'));};
+I.sword=function(x,y,s){return A(x,y,s,LN(-10,10,8,-8,'#B5D4F4',3)+LN(8,-8,12,-12,'#D3D1C7',2.5)+LN(-12,12,-6,6,'#888780',2.5)+LN(-4,2,-10,-2,'#888780',2));};
+I.knife=function(x,y,s){return A(x,y,s,P('M-4 -12 L6 4 L-6 4 Z','#D3D1C7')+LN(-4,4,4,4,'#888780',2.5));};
+I.rake=function(x,y,s){return A(x,y,s,LN(-10,14,6,-6,'#5F5E5A',2.5)+RB(0,-12,14,8,'#888780',2)+LN(2,-4,2,4,'#888780',1.5)+LN(7,-4,7,4,'#888780',1.5)+LN(12,-4,12,4,'#888780',1.5));};
+I.fan=function(x,y,s){return A(x,y,s,P('M0 14 C-14 -8 -10 -26 0 -34 C10 -26 14 -8 0 14 Z','#639922')+LN(0,12,0,-32,'#97C459',1)+LN(-1,14,-3,22,'#5F5E5A',2.5));};
+I.scroll=function(x,y,s){return A(x,y,s,RB(-14,-8,28,16,'#D3D1C7',2)+LN(-9,-3,9,-3,'#888780',1)+LN(-9,1,9,1,'#888780',1)+LN(-9,5,4,5,'#888780',1));};
+I.robe=function(x,y,s){return A(x,y,s,P('M-16 12 L-8 -12 L8 -12 L16 12 Z','#993C1D')+ST('M-8 -12 L0 12 L8 -12','#FAC775',1.5));};
+I.pearl=function(x,y,s){return A(x,y,s,K(0,0,9,'#E1F5EE')+K(0,0,14,'none','stroke="#9FE1CB" stroke-width="1"'));};
+I.bag=function(x,y,s){return A(x,y,s,P('M-14 14 Q-18 -6 -8 -14 Q0 -20 8 -14 Q18 -6 14 14 Z','#7F77DD')+ST('M-10 -14 L-6 -20 M10 -14 L6 -20','#AFA9EC',2));};
+I.altar=function(x,y,s){return A(x,y,s,RB(-20,-6,40,6,'#712B13')+LN(-14,0,-14,14,'#5F5E5A',2.5)+LN(14,0,14,14,'#5F5E5A',2.5)+P('M-6 -6 L0 -16 L6 -6 Z','#FAC775'));};
+I.cart=function(x,y,s){return A(x,y,s,RB(-18,-12,36,14,'#712B13',2)+K(-10,6,6,'none','stroke="#B4B2A9" stroke-width="2"')+K(10,6,6,'none','stroke="#B4B2A9" stroke-width="2"')+LN(-30,0,-18,0,'#888780',2));};
+I.boat=function(x,y,s){return A(x,y,s,P('M-20 4 Q0 22 20 4 Q0 10 -20 4 Z','#712B13')+LN(0,4,0,-16,'#5F5E5A',2)+P('M0 -16 L16 -6 L0 -6 Z','#D3D1C7'));};
+I.turtle=function(x,y,s){return A(x,y,s,EL(0,2,16,10,'#0F6E56')+LN(-12,2,12,2,'#5DCAA5',1)+LN(0,-6,0,10,'#5DCAA5',1)+K(19,2,5,'#0F6E56')+RB(-12,10,5,6,'#0F6E56',2)+RB(7,10,5,6,'#0F6E56',2));};
+I.fish=function(x,y,s){return A(x,y,s,P('M-12 0 Q0 -12 12 0 Q0 12 -12 0 Z','#5DCAA5')+P('M-12 0 L-22 -8 L-22 8 Z','#1D9E75')+K(5,-2,1.4,'#04342C'));};
+I.basket=function(x,y,s){return A(x,y,s,P('M-14 4 Q0 20 14 4 Z','#BA7517')+ST('M-14 4 L14 4','#FAC775',1.5)+P('M-4 -14 Q8 -4 4 0 Q-6 -2 -4 -14 Z','#5DCAA5')+K(-8,0,5,'#0F6E56'));};
+I.spider=function(x,y,s){return A(x,y,s,K(0,0,7,'#72243E')+K(0,-8,4,'#72243E')+LN(-6,-2,-16,-8,'#72243E',1.2)+LN(-6,2,-17,2,'#72243E',1.2)+LN(-6,6,-16,12,'#72243E',1.2)+LN(6,-2,16,-8,'#72243E',1.2)+LN(6,2,17,2,'#72243E',1.2)+LN(6,6,16,12,'#72243E',1.2));};
+I.web=function(x,y,s){return A(x,y,s,K(0,0,10,'none','stroke="#B4B2A9" stroke-width="0.8"')+K(0,0,17,'none','stroke="#B4B2A9" stroke-width="0.6"')+LN(0,-19,0,19,'#B4B2A9',.5)+LN(-19,0,19,0,'#B4B2A9',.5)+LN(-13,-13,13,13,'#B4B2A9',.5)+LN(-13,13,13,-13,'#B4B2A9',.5));};
+I.needle=function(x,y,s){return A(x,y,s,LN(-14,10,12,-8,'#EDEBE4',2)+K(-14,10,2.5,'none','stroke="#EDEBE4" stroke-width="1.5"'));};
+I.scorpion=function(x,y,s){return A(x,y,s,EL(0,2,10,6,'#A32D2D')+ST('M8 0 Q18 -4 16 -14 Q14 -20 8 -18','#A32D2D',3)+LN(-8,6,-16,12,'#A32D2D',1.5)+LN(-8,-2,-16,-6,'#A32D2D',1.5)+LN(4,8,6,16,'#A32D2D',1.5)+LN(-2,8,0,16,'#A32D2D',1.5));};
+I.skull=function(x,y,s){return A(x,y,s,K(0,0,11,'#D3D1C7')+RB(-6,8,12,6,'#D3D1C7',2)+K(-4,-2,3,'#2C2C2A')+K(4,-2,3,'#2C2C2A')+LN(0,2,0,6,'#888780',1.5));};
+I.bones=function(x,y,s){return A(x,y,s,LN(-14,10,14,-10,'#D3D1C7',3)+LN(-14,-10,14,10,'#D3D1C7',3)+K(-15,11,2.5,'#D3D1C7')+K(15,-11,2.5,'#D3D1C7')+K(-15,-11,2.5,'#D3D1C7')+K(15,11,2.5,'#D3D1C7'));};
+I.flame=function(x,y,s){return A(x,y,s,P('M-14 12 C-20 -4 -10 -10 -6 -20 C-2 -10 8 -4 2 12 Z','#D85A30')+P('M2 12 C-2 -6 10 -12 12 -24 C16 -12 26 -6 20 12 Z','#E24B4A')+P('M20 12 C16 -2 24 -8 26 -16 C30 -8 38 -2 34 12 Z','#993C1D')+P('M6 12 C4 0 12 -4 13 -12 C16 -4 22 0 18 12 Z','#F0997B'));};
+I.sun=function(x,y,s){return A(x,y,s,K(0,0,10,'#FAC775')+LN(0,-14,0,-20,'#FAC775',1.5)+LN(0,14,0,20,'#FAC775',1.5)+LN(-14,0,-20,0,'#FAC775',1.5)+LN(14,0,20,0,'#FAC775',1.5)+LN(-10,-10,-15,-15,'#FAC775',1.5)+LN(10,10,15,15,'#FAC775',1.5)+LN(10,-10,15,-15,'#FAC775',1.5)+LN(-10,10,-15,15,'#FAC775',1.5));};
+I.spark=function(x,y,s){return A(x,y,s,LN(0,-10,0,10,'#FAC775',2)+LN(-10,0,10,0,'#FAC775',2)+LN(-7,-7,7,7,'#FAC775',1.5)+LN(-7,7,7,-7,'#FAC775',1.5));};
+I.smoke=function(x,y,s){return A(x,y,s,ST('M-10 12 Q-2 4 -8 -2 Q-14 -8 -6 -14','#888780',2)+ST('M4 12 Q12 4 6 -4 Q0 -10 8 -16','#888780',2));};
+I.splash=function(x,y,s){return A(x,y,s,ST('M-16 8 Q-8 -2 0 8 Q8 -2 16 8','#5DCAA5',2)+K(-6,-6,1.6,'#5DCAA5')+K(4,-10,1.6,'#5DCAA5')+K(12,-4,1.6,'#5DCAA5'));};
+I.wind=function(x,y,s){return A(x,y,s,ST('M-18 -8 q8 -6 16 0 t16 0','#9FE1CB',1.8,'5 4')+ST('M-18 2 q8 -6 16 0 t16 0','#9FE1CB',1.5,'5 4')+ST('M-14 12 q8 -6 16 0 t16 0','#9FE1CB',1.2,'5 4'));};
+I.star=function(x,y,s){return A(x,y,s,P('M0 -12 L3 -3 L12 0 L3 3 L0 12 L-3 3 L-12 0 L-3 -3 Z','#EDEBE4'));};
+I.crown=function(x,y,s){return A(x,y,s,P('M-16 10 L16 10 L14 4 L-14 4 Z','#FAC775')+P('M-14 4 L-9 -10 L-2 -2 L5 -12 L14 4 Z','#FAC775')+K(-9,-9,2,'#E24B4A')+K(5,-11,2,'#E24B4A')+K(0,8,2,'#E24B4A'));};
+I.pagoda=function(x,y,s){return A(x,y,s,P('M-20 10 L20 10 L14 2 L-14 2 Z','#534AB7')+P('M-14 2 L14 2 L9 -6 L-9 -6 Z','#7F77DD')+P('M-9 -6 L9 -6 L5 -14 L-5 -14 Z','#AFA9EC')+LN(0,-14,0,-20,'#FAC775',2)+K(0,-22,2.5,'#FAC775'));};
+I.cage=function(x,y,s){return A(x,y,s,RB(-16,-14,32,28,'none',3)+LN(-8,-14,-8,14,'#B4B2A9',1)+LN(0,-14,0,14,'#B4B2A9',1)+LN(8,-14,8,14,'#B4B2A9',1)+ST('M-6 -14 Q0 -22 6 -14','#B4B2A9',1.5));};
+I.well=function(x,y,s){return A(x,y,s,EL(0,6,16,6,'#5F5E5A')+RB(-16,-4,32,10,'#888780')+EL(0,-4,16,5,'#2C2C2A')+LN(-16,-4,-16,-20,'#888780',2)+LN(16,-4,16,-20,'#888780',2)+LN(-16,-20,16,-20,'#888780',2));};
+I.fruit=function(x,y,s){return A(x,y,s,K(0,2,9,'#F09595')+LN(0,-7,3,-12,'#5F5E5A',1.5)+P('M3 -12 Q10 -14 9 -8 Q4 -8 3 -12 Z','#639922'));};
+I.dragon=function(x,y,s){return A(x,y,s,ST('M-14 10 Q0 -6 6 -2 Q14 2 12 10','#0F6E56',6)+K(14,4,6,'#0F6E56')+ST('M18 -2 Q24 -6 28 -2','#5DCAA5',2)+ST('M17 8 Q22 12 26 8','#5DCAA5',2)+K(16,2,1.4,'#04342C'));};
+I.elephant=function(x,y,s){return A(x,y,s,K(0,0,11,'#AFA9EC')+K(-9,-3,5,'#85B7EB')+ST('M10 2 Q22 6 20 18 Q19 24 13 22','#AFA9EC',5)+P('M12 8 L16 16 L9 12 Z','#EDEBE4')+K(3,-2,1.4,'#2C2C2A'));};
+I.eagle=function(x,y,s){return A(x,y,s,P('M-6 -2 L-30 -14 L-22 4 Z','#444441')+P('M6 -2 L30 -14 L22 4 Z','#444441')+K(0,0,9,'#888780')+P('M-2 6 L3 6 L1 12 Z','#FAC775')+K(-3,-2,1.2,'#2C2C2A')+K(3,-2,1.2,'#2C2C2A'));};
+I.horse=function(x,y,s){return A(x,y,s,EL(0,4,18,8,'#D3D1C7')+LN(-10,10,-10,18,'#D3D1C7',2)+LN(-2,11,-2,18,'#D3D1C7',2)+LN(8,11,8,18,'#D3D1C7',2)+LN(14,10,14,18,'#D3D1C7',2)+LN(14,-2,22,-12,'#D3D1C7',5)+K(24,-14,5,'#D3D1C7')+LN(19,-16,19,-22,'#888780',1.5)+ST('M12 -6 Q16 -14 20 -16','#888780',2)+ST('M-18 4 q-8 2 -6 10','#D3D1C7',2));};
+I.cicada=function(x,y,s){return A(x,y,s,EL(0,2,5,11,'#BA7517')+EL(-6,-4,5,9,'#FAC775','opacity="0.75"')+EL(6,-4,5,9,'#FAC775','opacity="0.75"')+K(-2,-6,1.4,'#501313')+K(2,-6,1.4,'#501313')+LN(-2,-10,-4,-16,'#5F5E5A',1)+LN(2,-10,4,-16,'#5F5E5A',1));};
+I.baby=function(x,y,s){return A(x,y,s,K(0,-2,6,'#F5C4B3')+RB(-4,4,8,9,'#ED93B1',3)+K(-1.4,-3,.9,'#2C2C2A')+K(1.4,-3,.9,'#2C2C2A')+ST('M-2 0 Q0 1.6 2 0','#993556',1));};
+I.buddha=function(x,y,s){return A(x,y,s,K(0,-2,20,'none','stroke="#FAC775" stroke-width="1.2"')+LN(0,-28,0,-24,'#FAC775',1.5)+LN(0,22,0,26,'#FAC775',1.5)+LN(-28,-2,-24,-2,'#FAC775',1.5)+LN(24,-2,28,-2,'#FAC775',1.5)+K(0,0,9,'#FAC775')+P('M-9 12 Q0 -2 9 12 Z','#FAC775')+ST('M-4 -1 Q-2 1 0 -1','#633806',1)+ST('M0 -1 Q2 1 4 -1','#633806',1));};
+I.monkey=function(x,y,s){return A(x,y,s,CR({hc:'#EF9F27',e:'r',mk:1,band:1,tl:1,b:'#EF9F27',k:'#993C1D'}));};
+I.pig=function(x,y,s){return A(x,y,s,CR({hc:'#F4C0D1',e:'t',sn:1,b:'#72243E',k:'#444441'}));};
+I.demon=function(x,y,s){return A(x,y,s,CR({hc:'#5F5E5A',e:'p',h:1,ey:'a',mk:1,b:'#444441'}));};
+I.tiger=function(x,y,s){return A(x,y,s,CR({hc:'#EF9F27',e:'t',tg:1,ey:'a',b:'#BA7517'}));};
+I.lion=function(x,y,s){return A(x,y,s,CR({hc:'#854F0B',e:'r',m:1,mk:1,b:'#854F0B'}));};
+I.ox=function(x,y,s){return A(x,y,s,CR({hc:'#444441',e:'p',h:1,sn:1,snC:'#5F5E5A',b:'#2C2C2A'}));};
+I.rhino=function(x,y,s){return A(x,y,s,CR({hc:'#5F5E5A',e:'p',n:1,ey:'a',b:'#444441'}));};
+I.rat=function(x,y,s){return A(x,y,s,CR({hc:'#B4B2A9',e:'p',mk:1,b:'#888780'}));};
+I.rabbit=function(x,y,s){return A(x,y,s,CR({hc:'#D3D1C7',e:'l',mk:1,b:'#D3D1C7'}));};
+I.deer=function(x,y,s){return A(x,y,s,CR({hc:'#854F0B',e:'p',h:1,mk:1,b:'#633806'}));};
+I.leopard=function(x,y,s){return A(x,y,s,CR({hc:'#EF9F27',e:'t',sp:1,ey:'a',b:'#633806'}));};
+I.bear=function(x,y,s){return A(x,y,s,CR({hc:'#2C2C2A',e:'r',mk:1,b:'#2C2C2A'}));};
+I.wolf=function(x,y,s){return A(x,y,s,CR({hc:'#888780',e:'p',ey:'a',b:'#5F5E5A'}));};
+I.monk=function(x,y,s){return A(x,y,s,PE({hat:'monk',robe:'#712B13',trim:'#FAC775'}));};
+I.sha=function(x,y,s){return A(x,y,s,PE({beard:1,robe:'#0C447C'})+K(-4,11,1.2,'#D85A30')+K(-2,13.5,1.2,'#D85A30')+K(0,14.5,1.2,'#D85A30')+K(2,13.5,1.2,'#D85A30')+K(4,11,1.2,'#D85A30'));};
+I.woman=function(x,y,s){return A(x,y,s,PE({hair:1,robe:'#ED93B1',smile:1}));};
+I.princess=function(x,y,s){return A(x,y,s,PE({hat:'crown',hair:1,robe:'#ED93B1',smile:1}));};
+I.king=function(x,y,s){return A(x,y,s,PE({hat:'crown',beard:1,robe:'#854F0B'}));};
+I.bodhi=function(x,y,s){return A(x,y,s,PE({halo:'#FAC775',robe:'#D3D1C7'}));};
+var C={q:['#26215C','#CECBF6','#3C3489','前世债'],s:['#042C53','#B5D4F4','#0C447C','神佛设局'],h:['#501313','#F7C1C1','#791F1F','有后台的妖'],y:['#412402','#FAC775','#633806','野生妖'],x:['#4B1528','#F4C0D1','#72243E','心魔旧债'],r:['#2C2C2A','#D3D1C7','#444441','人间俗难'],z:['#04342C','#9FE1CB','#085041','自然险阻']};
+var M={8:1,9:1,12:1,15:1,16:1,18:1,19:1,24:1,25:1,28:1,33:1,34:1,35:1,36:1,37:1,43:1,45:1,46:1,47:1,48:1,61:1,62:1,63:1,64:1,65:1,66:1,69:1,80:1,81:1};
+var D=[
+'1|q|金蝉遭贬|bgTemple;cicada;monk;;|金蝉子听经打盹，被贬东土投胎重修|i|m|金蝉子只是听经打个盹，为何罚到要取经赎罪？“轻慢”算不算罪？|第8回 我佛造经传极乐　观音奉旨上长安',
+'2|q|出胎几杀|bgCity;knife;baby;;|水贼霸母害父，婴儿一出生就踏进鬼门关|e|g|一出生就背着父仇，这算“命”还是算“难”？|附录 陈光蕊赴任逢灾　江流僧复仇报本',
+'3|q|满月抛江|bgWave;baby;;;splash|满月被绑木板抛入江心，金山寺和尚捡回一条命|e|y|被抛入江还能活下来——是运气，还是早有安排？|附录 陈光蕊赴任逢灾　江流僧复仇报本',
+'4|q|寻亲报冤|bgCity;sword;monk;;|十八年后血书寻母，外公领兵擒杀水贼|e|g|寻亲报仇之后再出家：复仇与慈悲能同时成立吗？|附录 陈光蕊赴任逢灾　江流僧复仇报本',
+'5|y|出城逢虎|bgMtn;tiger;monk;;|出长安才两天，虎精寅将军吃掉两个从者|e|m|出城两天就死了两个随从——慈悲在山里值多少？|第13回 陷虎穴金星解厄　双叉岭伯钦留僧',
+'6|y|落坑折从|bgCave;demon;bones;;|唐僧被抓进妖洞，太白金星搭救才脱身|e|m|第一次遇妖就靠太白金星搭救，靠别人救算过关吗？|第13回 陷虎穴金星解厄　双叉岭伯钦留僧',
+'7|y|双叉岭上|bgMtn;monk;tiger;;|猎户刘伯钦打虎相送，告别大唐地界|e|y|猎户的护持和神仙的护持，哪个更重要？|第13回 陷虎穴金星解厄　双叉岭伯钦留僧',
+'8|s|两界山头|bgMtn;fingers;monkey;;|揭去六字真言帖，压了五百年的猴子翻山而出|i|y|揭开压帖放走一个五百年的重犯，谁该负责？|第14回 心猿归正　六贼无踪',
+'9|s|陡涧换马|bgWave;horse;dragon;;|小白龙吃掉白马，观音把它点化成脚力|e|g|白龙吃掉白马，最后成了脚力——敌人变队友靠什么？|第15回 蛇盘山诸神暗佑　鹰愁涧意马收缰',
+'10|r|夜被火烧|bgPalace;flame;monk;;smoke|观音院老僧想烧死师徒霸产，反烧了自己|i|m|老僧为一件袈裟放火：贪欲是外来的，还是自己心里的？|第16回 观音院僧谋宝贝　黑风山怪窃袈裟',
+'11|h|失却袈裟|bgPalace;robe;bear;;|黑熊精趁火打劫偷袈裟，后被观音收去守山|e|m|黑熊精偷袈裟，最后反倒守山：这是罚还是赏？|第16—17回 观音院僧谋宝贝　黑风山怪窃袈裟',
+'12|y|收降八戒|bgPalace;pig;monk;;|高老庄倒插门女婿现出猪形，一柄钉耙入伙|i|g|收八戒时他只想吃饭娶妻——这样的队友要不要？|第18—19回 观音院唐僧脱难　高老庄大圣除魔',
+'13|h|黄风怪阻|bgMtn;rat;monkey;;wind|黄风怪一口三昧神风，吹得悟空眼直流泪|e|m|三昧神风一吹，悟空也只能流泪：本事再大也有边界？|第20回 黄风岭唐僧有难　半山中八戒争先',
+'14|h|请求灵吉|bgMtn;bodhi;pearl;;|灵吉菩萨定风珠破风，黄毛貂鼠被押回灵山|e|y|定风珠是外力——关键处为什么总要请人来破局？|第21回 护法设庄留大圣　须弥灵吉定风魔',
+'15|y|流沙难渡|bgWave;sha;bones;;|八百里流沙河，鹅毛也沉底，寸步难行|e|y|八百里流沙、鹅毛沉底：为什么“过河”常比“打怪”难？|第22回 八戒大战流沙河　木叉奉法收悟净',
+'16|y|收得沙僧|bgWave;sha;monk;;|卷帘大将脖挂九个取经人头骨，正式入队|i|g|沙僧脖上挂着九个取经人的头骨——前八位算什么？|第22回 八戒大战流沙河　木叉奉法收悟净',
+'17|s|四圣显化|bgPalace;woman;monk;;|老母带三大菩萨变母女试禅心，八戒被吊一宿|t|m|四圣试禅心只吊了八戒，可四个人里真的只有他动摇吗？|第23回 三藏不忘本　四圣试禅心',
+'18|s|五庄观中|bgTemple;tree;monkey;;|悟空推倒人参果树，师徒连夜跑路被抓回|i|m|推倒人参果树：是妖在作乱，还是本性难改？|第24回 万寿山大仙留故友　五庄观行者窃人参',
+'19|s|难活人参|bgTemple;bottle;tree;;spark|观音玉瓶甘露医活宝树，与镇元子结拜|e|y|救活宝树要靠观音甘露：闯的祸凭什么别人收拾？|第26回 孙悟空三岛求方　观世音甘泉活树',
+'20|x|贬退心猿|bgMtn;monk;scroll;monkey|三打白骨精，唐僧肉眼凡胎怒写贬书逐徒|i|g|三打白骨精：唐僧肉眼凡胎，悟空为何不能耐心解释一次？|第27回 尸魔三戏唐三藏　圣僧恨逐美猴王',
+'21|h|黑松林失散|bgForest;monk;wolf;;|唐僧独自化斋，一头撞进黄袍怪的窝|e|m|好心独自化斋反被妖擒——善行会招祸吗？|第28回 花果山群妖聚义　黑松林三藏逢魔',
+'22|h|宝象国捎书|bgPalace;scroll;princess;;|公主托捎家书，宝象国里揭穿妖驸马真身|e|g|公主托书、国主信妖：肉眼看到的“真相”有多不可靠？|第29回 脱难江流来国土　承恩八戒转山林',
+'23|h|金銮殿变虎|bgPalace;tiger;monk;;|唐僧被妖变成猛虎，八戒智激美猴王归来|e|g|师徒反目后悟空被请回——散了的人靠谁拉回来？|第30回 邪魔侵正法　意马忆心猿',
+'24|h|平顶山逢魔|bgMtn;demon;monkey;;spark|金角银角，原是老君看炉的两个童子|e|m|金角银角是老君童子：天上的孩子下凡为妖，天上没责任吗？|第32回 平顶山功曹传信　莲花洞木母逢灾',
+'25|h|莲花洞高悬|bgCave;gourd;monkey;;|悟空化名者行孙，反被装进自家的紫金葫芦|i|m|化名“者行孙”反被装进葫芦：聪明反被聪明误？|第33—35回 外道迷真性　元神助本心',
+'26|h|乌鸡国救主|bgPalace;king;well;;|国王被推入井中三年，泡成腊肉仍托梦伸冤|e|y|国王在井里泡了三年才等到取经人——正义可以迟到三年吗？|第37回 鬼王夜谒唐三藏　悟空神化引婴儿',
+'27|h|被魔化身|bgMtn;monk;monk;;spark|妖怪变作假唐僧，悟空念紧箍咒才分出真假|i|m|假唐僧骗过所有人，只有紧箍咒验真——真相为什么靠疼证明？|第39回 一粒金丹天上得　三年故主世间生',
+'28|y|号山逢怪|bgFlame;baby;monkey;;smoke|火云洞红孩儿，三昧真火烧得悟空跳河降温|e|m|红孩儿三昧真火难挡，悟空跳河降温：先保命算不算认输？|第40回 婴儿戏化禅心乱　猿马刀归木母空',
+'29|y|风摄圣僧|bgMtn;baby;monk;;wind|一阵旋风，唐僧被摄进火云洞|e|g|唐僧被一阵风卷走：“保护”为什么总在失去后才被理解？|第40回 婴儿戏化禅心乱　猿马刀归木母空',
+'30|y|心猿遭害|bgFlame;monkey;;;smoke|悟空被烟火熏败，八戒沙僧被擒|e|y|烟熏火燎打不过——有没有“硬拼不得”时的正确解法？|第41回 心猿遭火败　木母被魔擒',
+'31|y|请圣降妖|bgMtn;bodhi;baby;;spark|观音收红孩儿做善财童子，天罡刀化莲台|e|m|红孩儿被收作善财童子：惩罚一个孩子最好的方式是什么？|第42回 大圣殷勤拜南海　观音慈善缚红孩',
+'32|h|黑河沉没|bgWave;dragon;monk;;|西海龙王外甥鼍龙强占黑水河，抓唐僧吃席|e|m|鼍龙是龙王外甥——亲戚犯错，该由谁来说话？|第43回 黑河妖孽擒僧去　西洋龙子捉鼍回',
+'33|y|搬运车迟|bgCity;cart;monk;;|车迟国兴道灭僧，和尚给道士拉车累死大半|e|g|和尚给道士拉车累死大半：凡人被规则碾压时谁能出手？|第44回 法身元运逢车力　心正妖邪度脊关',
+'34|y|大赌输赢|bgCity;altar;demon;;spark|求雨猜物砍头下油锅，三局定输赢|e|y|求雨猜物、砍头下油锅——用赌局定胜负公平吗？|第45回 三清观大圣留名　车迟国猴王显法',
+'35|y|祛道兴僧|bgCity;deer;monk;;spark|虎鹿羊三妖现出原形，举国和尚连夜翻身|e|m|三妖现形，举国和尚翻身：除妖易，除心里的迷信难吗？|第46回 外道弄强欺正法　心猿显圣灭诸邪',
+'36|z|路逢大水|bgWave;monk;;;|八百里通天河拦路，白茫茫望不到对岸|t|y|八百里通天河：最难的一关常常只是“过不去”？|第47回 圣僧夜阻通天水　金木垂慈救小童',
+'37|h|身落天河|bgWave;fish;monk;;|观音莲花池的金鱼私逃下界，年年吃童男童女|e|m|金鱼精是观音池里的，年年吃童男童女——养的人有责任吗？|第48回 魔弄寒风飘大雪　僧思拜佛履层冰',
+'38|h|鱼篮现身|bgWave;basket;bodhi;;|观音来不及梳妆，提着鱼篮把鱼妖钓走|e|y|观音来不及梳妆就提鱼篮收妖：效率与体面选哪个？|第49回 三藏有灾沉水宅　观音救难现鱼篮',
+'39|h|金兜山遇怪|bgMtn;ox;ring;;|青牛精一个金刚琢，连金箍棒一起套走|e|m|金刚琢套走金箍棒——拿掉武器，悟空还剩什么？|第50回 情乱性从因爱欲　神昏心动遇魔头',
+'40|h|普天神难伏|bgMtn;ring;sword;;spark|火德水德诸天神佛，兵器全被套了个光|e|y|满天神佛兵器全被套光：“谁更强”这个问题有意义吗？|第51回 心猿空用千般计　水火无功难炼魔',
+'41|h|问佛根源|bgTemple;buddha;ox;;|如来不敢明说，只暗示老君亲自下山牵牛|i|m|如来不敢明说，只暗示老君出面：真相为何总被委婉包裹？|第52回 悟空大闹金兜洞　如来暗示主人公',
+'42|z|吃水遭毒|bgWave;monk;bottle;;|误饮子母河水，唐僧八戒双双有喜|t|m|子母河水让师徒双双有喜：笑完之后，这一难在说什么？|第53回 禅主吞餐怀鬼孕　黄婆运水解邪胎',
+'43|r|西梁国留婚|bgPalace;crown;monk;;|女儿国王愿以一国江山，只求嫁个御弟哥哥|t|m|女王愿以一国之富相留——留下是错，走开是苦，哪个更难？|第54回 法性西来逢女国　心猿定计脱烟花',
+'44|y|琵琶洞受苦|bgMtn;scorpion;monkey;;|蝎子精连如来都蛰过，倒马毒桩扎痛悟空|e|m|蝎子精连如来都蛰过：越界的欲望有多难治？|第55回 色邪淫戏唐三藏　性正修持不坏身',
+'45|x|再贬心猿|bgForest;scroll;monkey;;|悟空打死几个草寇，唐僧二度写下贬书|i|g|打死几个草寇，唐僧二度贬徒——规矩和性命谁优先？|第56回 神狂诛草寇　道昧放心猿',
+'46|x|难辨猕猴|bgMtn;monkey;monkey;;spark|六耳猕猴假扮悟空，谛听听出真相却不敢说|i|m|六耳猕猴是悟空的另一个自己吗？他打唐僧时悟空在想什么？|第57—58回 真行者落伽山诉苦　假猴王水帘洞誊文',
+'47|x|路阻火焰山|bgFlame;flame;monkey;;|八百里火焰寸步难行，当年踢倒丹炉的余祸|i|y|八百里火焰是五百年前踢倒丹炉的余祸：旧债要还多久？|第59回 唐三藏路阻火焰山　孙行者一调芭蕉扇',
+'48|y|求取芭蕉扇|bgFlame;fan;monkey;;wind|一借被假扇骗，二借变虫钻进铁扇公主肚子|e|y|一借被假扇骗，二借钻进铁扇公主肚里——为达目的可用什么手段？|第59—61回 牛魔王罢战赴华筵　孙行者二调芭蕉扇',
+'49|y|收缚魔王|bgFlame;ox;monkey;;spark|天兵围剿牛魔王，扇灭火焰过山去|e|g|收牛魔王要请天兵：个人恩怨升级成联合行动，成本谁付？|第61回 猪八戒助力败魔王　孙行者三调芭蕉扇',
+'50|y|赛城扫塔|bgTemple;pagoda;monk;;|祭赛国舍利被盗，众僧披枷戴锁蒙冤|e|g|祭赛国众僧被枷蒙冤——真相到来前，多少人已经毁了？|第62回 涤垢洗心惟扫塔　缚魔归正乃修身',
+'51|y|取宝救僧|bgWave;dragon;sword;;spark|九头虫盗宝，二郎神带哮天犬助战夺回|e|g|二郎神带哮天犬助战：这场胜仗到底是谁的功劳？|第63回 二僧荡怪闹龙宫　群圣除邪获宝贝',
+'52|y|棘林吟咏|bgForest;tree;monk;;|荆棘岭树精只想谈诗，被八戒连根拱倒|t|m|树精只吟诗不吃人，却被连根拱倒——不害人的“异类”该不该除？|第64回 荆棘岭悟能努力　木仙庵三藏谈诗',
+'53|h|小雷音遭难|bgTemple;buddha;monkey;ring|小雷音寺假如来，一副金铙把悟空扣了三天|i|y|假如来、假雷音：最像正道的地方反而最危险？|第65回 妖邪假设小雷音　四众皆遭大厄难',
+'54|h|诸天神遭困|bgMtn;bag;bodhi;;spark|黄眉怪人种袋一抖，满天神佛全被装走|e|y|人种袋一抖，满天神佛被装走——救济失灵时靠什么？|第66回 诸神遭毒手　弥勒缚妖魔',
+'55|z|稀柿衕秽阻|bgForest;pig;fruit;;|七百里烂柿子街臭气冲天，八戒变巨猪拱路|e|g|烂柿路臭气冲天，八戒变大猪拱开——最难的事常最不体面？|第67回 拯救驼罗禅性稳　脱离秽污道心清',
+'56|h|朱紫国行医|bgPalace;king;monk;;|朱紫国王重病，悬丝诊脉开出乌金丹|e|y|悬丝诊脉、乌金丹：治病先摸病根，取经也一样吗？|第68回 朱紫国唐僧论前世　孙行者施为三折肱',
+'57|h|拯救疲癃|bgMtn;lion;princess;;|金毛犼掳走金圣宫三年，脏衣护她周全|e|m|脏衣保王后清白：保护与羞辱为何会系在同一件衣服上？|第70—71回 妖魔宝放烟沙火　悟空计盗紫金铃',
+'58|h|降妖取后|bgMtn;bodhi;lion;;|犼是观音坐骑，主人到点准时来领人|i|m|主人到点来领坐骑：“有后台”是最好的护身符吗？|第71回 行者假名降怪犼　观音现象伏妖王',
+'59|y|七情迷没|bgCave;spider;web;monk|盘丝洞七个蜘蛛精，肚脐眼冒丝绳捆住唐僧|t|m|七情迷没：蜘蛛精的丝从自身肚脐生出——七情为何长在自己身上？|第72回 盘丝洞七情迷本　濯垢泉八戒忘形',
+'60|y|多目遭伤|bgCave;spider;needle;;spark|百眼魔君千眼放金光，毗蓝婆绣花针破功|e|y|千眼金光难破，一根绣花针破功：关键处拼力量还是拼方法？|第73回 情因旧恨生灾毒　心主遭魔幸破光',
+'61|h|路阻狮驼|bgMtn;lion;elephant;eagle|狮驼岭八万四千小妖，三大魔头坐镇|e|g|八万四千小妖坐镇：面对绝对劣势，坚持还有意义吗？|第74回 长庚传报魔头狠　行者施为变化能',
+'62|h|怪分三色|bgMtn;eagle;lion;elephant|青狮一口吞十万天兵，大鹏一翅九万里|e|m|青狮一口吞十万天兵、大鹏一翅九万里：强就是道理吗？|第75—76回 心猿钻透阴阳体　魔主还归大道真',
+'63|h|城里遇灾|bgCity;demon;skull;;|狮驼国满城人早被吃光，只剩妖怪当道|e|y|满城人早被吃光只剩妖怪当道：迟到的救援算什么？|第76回 心神居舍魔归性　木母同降怪体真',
+'64|h|请佛收魔|bgTemple;buddha;eagle;;spark|如来亲率文殊普贤收魔，大鹏是佛门亲戚|i|y|如来亲自收魔，大鹏还是佛门亲戚——规则会在关系面前弯吗？|第77回 群魔欺本性　一体拜真如',
+'65|h|比丘救子|bgPalace;cage;baby;;|白鹿精要一千一百一十一个小儿心肝做药引|e|g|要一千一百一十一个小儿心肝做药引：为救一人可牺牲千人吗？|第78回 比丘怜子遣阴神　金殿识魔谈道德',
+'66|h|辨认真邪|bgPalace;baby;deer;;spark|悟空变小儿混入鹅笼，寿星赶到牵回白鹿|e|y|悟空变作小儿混入鹅笼：以恶制恶是否正当？|第79回 寻洞擒妖逢老寿　当朝正主救婴儿',
+'67|h|松林救怪|bgForest;woman;rat;;|松林里救的落难女子，原是金鼻白毛老鼠精|t|m|松林里救的落难女子竟是妖：慈悲与轻信的一线之隔在哪？|第80回 姹女育阳求配偶　心猿护主识妖邪',
+'68|h|僧房卧病|bgTemple;monk;bottle;;|唐僧惊病交加，镇海寺卧床三日|i|g|师父也会病、也会怕——队伍的信念靠谁撑着？|第81回 镇海寺心猿知怪　黑松林三众寻师',
+'69|h|无底洞遭困|bgCave;rat;monk;;|陷空山无底洞深不可测，老鼠精强逼成亲|t|m|陷空山无底洞，老鼠精强逼成亲：被裹挟时怎么守住自己？|第82—83回 姹女求阳　元神护道',
+'70|r|灭法国难行|bgCity;monk;sword;;|国王许愿杀一万和尚，已杀九千九百九十六|e|g|国王许愿杀一万和尚，已杀九千九百九十六——疯狂会变成制度吗？|第84回 难灭伽持圆大觉　法王成正体天然',
+'71|y|隐雾山遇魔|bgForest;leopard;monk;;|豹子精自称南山大王，梅花分瓣计骗走唐僧|e|m|豹子精自称“南山大王”：妖怪也要名分，图什么？|第85回 心猿妒木母　魔主计吞禅',
+'72|s|凤仙郡求雨|bgCity;sun;monk;;|郡侯推倒供桌喂狗，玉帝罚全郡三年无雨|i|y|郡侯推倒供桌，玉帝罚全郡三年无雨：一人之过全郡受罚，合理吗？|第87回 凤仙郡冒天止雨　孙大圣劝善施霖',
+'73|y|失落兵器|bgCity;rake;lion;;|玉华州三王子拜师学艺，兵器夜里被盗|e|g|兵器夜里被偷——徒弟学艺，第一课该学什么？|第88回 禅到玉华施法会　心猿木母授门人',
+'74|y|会庆钉钯|bgCity;rake;demon;;spark|黄狮精开钉钯宴庆祝，请帖太张扬惹灭门|i|m|黄狮精开“钉钯宴”张扬惹祸：炫耀的代价谁来付？|第89回 黄狮精虚设钉钯宴　金木土计闹豹头山',
+'75|y|竹节山遭难|bgMtn;lion;monk;;spark|九头狮子九个头一口一个，师徒全数被擒|e|m|九头狮子一口一个擒走师徒：遇到碾压级对手，认输还是死磕？|第90回 师狮授受同归一　盗道缠禅静九灵',
+'76|y|玄英洞受苦|bgCave;rhino;buddha;;|三只犀牛精假扮佛祖，白收香油多年|t|m|犀牛精假扮佛祖收香油多年：真假信仰怎么分辨？|第91回 金平府元夜观灯　玄英洞唐僧供状',
+'77|y|赶捉犀牛|bgMtn;rhino;star;;spark|四木禽星下界围捕，犀牛角锯下分赏各州|e|g|犀牛角锯下分赏各州：战利品该怎么分？|第92回 三僧大战青龙山　四星挟捉犀牛怪',
+'78|h|天竺招婚|bgPalace;rabbit;monk;;|玉兔精抛绣球抢亲，太阴星君带队接走|t|m|玉兔抛绣球抢亲：被人安排的姻缘，谁能替你拒绝？|第93—95回 给孤园问古谈因　天竺国朝王遇偶',
+'79|r|铜台府监禁|bgCity;cage;monk;scroll|铜台府被诬强盗下狱，靠文牒乡邻作证得脱|e|g|被诬为盗下狱，靠文牒自证——清白靠证据，还是靠关系？|第96—97回 寇员外喜待高僧　唐长老不贪富贵',
+'80|s|凌云渡脱险|bgWave;boat;monk;;|无底船上回头一看，上游漂来自己的凡胎|i|y|无底船上回头，见自己的凡胎漂走：脱胎换骨是什么感觉？|第98回 猿熟马驯方脱壳　功成行满见真如',
+'81|s|通天河遇鼋|bgWave;turtle;scroll;monk|忘了替老鼋问寿，连人带经翻进通天河|i|y|八十难凑不满九九，最后一难随手补上：为什么“圆满”总要凑数？|第99回 九九数完魔灭尽　三三行满道归根'
+];
+var SL=[[100,86,1],[100,50,1],[42,74,.62],[158,74,.62],[100,32,1]];
+var MOODBYCAT={q:'s',s:'c',h:'a',y:'a',x:'a',r:'s',z:'s'};
+var ENV={bgMtn:'#3C3489',bgWave:'#0F6E56',bgFlame:'#993C1D',bgForest:'#173404',bgCity:'#444441',bgPalace:'#712B13',bgTemple:'#534AB7',bgCave:'#26215C'};
+function sky(k){var c=ENV[k]||'#2C2C2A',s='';
+s+='<rect x="0" y="0" width="200" height="50" fill="'+c+'" opacity="0.34"/>';
+s+='<rect x="0" y="50" width="200" height="50" fill="'+c+'" opacity="0.16"/>';
+if(k==='bgMtn')s+='<path d="M-4 62 L28 30 L58 62 Z" fill="#241F4D" opacity="0.85"/><path d="M118 62 L152 26 L188 62 Z" fill="#241F4D" opacity="0.85"/>';
+if(k==='bgForest')s+='<path d="M-2 62 L18 38 L38 62 Z" fill="#0F2606" opacity="0.9"/><path d="M148 62 L172 34 L196 62 Z" fill="#0F2606" opacity="0.9"/>';
+if(k==='bgWave')s+='<rect x="0" y="60" width="200" height="1.5" fill="#5DCAA5" opacity="0.3"/><path d="M150 22 L166 22 L166 30 L150 30 Z" fill="#9FE1CB" opacity="0.25"/>';
+if(k==='bgFlame')s+='<path d="M0 38 q22 -7 44 0 t44 0 t44 0 t44 0 t44 0" fill="none" stroke="#F0997B" stroke-width="1.6" opacity="0.42"/>';
+if(k==='bgCity'||k==='bgPalace'||k==='bgTemple')s+='<rect x="146" y="32" width="34" height="30" fill="#2C1113" opacity="0.8"/><path d="M141 32 L185 32 L176 23 L150 23 Z" fill="#2C1113" opacity="0.8"/>';
+if(k==='bgCave')s+='<path d="M0 0 L200 0 L200 18 Q100 40 0 18 Z" fill="#0F0F18" opacity="0.62"/>';
+return s;}
+function gnd(k){var s='';
+s+='<path d="M0 93 Q26 87 52 91 Q88 97 124 90 Q160 84 200 91 L200 100 L0 100 Z" fill="#121211"/>';
+s+='<path d="M20 93 q3 -7 6 0 M36 94 q3 -5 6 0 M166 92 q3 -7 6 0" fill="none" stroke="#121211" stroke-width="2.4"/>';
+if(k==='bgWave')s+='<path d="M0 86 q11 -5 22 0 t22 0 t22 0 t22 0 t22 0 t22 0 t22 0 t22 0 t22 0" fill="none" stroke="#085041" stroke-width="2.2" opacity="0.95"/>';
+if(k==='bgFlame')s+='<path d="M0 90 q13 -9 26 0 t26 0 t26 0 t26 0 t26 0 t26 0 t26 0 t26 0" fill="none" stroke="#4A1B0C" stroke-width="2.2" opacity="0.95"/>';
+if(k==='bgMtn'||k==='bgForest')s+='<path d="M8 96 L14 88 L20 96 Z" fill="#1C1C1B"/><path d="M182 96 L188 87 L194 96 Z" fill="#1C1C1B"/>';
+return s;}
+var draw=function(spec,mood){MOOD=mood||'a';var toks=spec.split(';'),out='',i;
+out+=sky(toks[0]);
+for(i=0;i<toks.length;i++){var t=toks[i];if(!t)continue;
+var p=t.indexOf('('),nm=p<0?t:t.slice(0,p),ar=p<0?[]:t.slice(p+1,-1).split(',').map(Number);
+if(!I[nm])continue;
+var pos=ar.length===3?ar:SL[i]||SL[1];
+out+=I[nm](pos[0],pos[1],pos[2]);}
+out+=gnd(toks[0]);
+return out;};
+var rt=document.getElementById('rt'),dp=document.getElementById('dp');
+function chev(dir){var p='<path d="M1 7 H14" stroke="#EF9F27" stroke-width="1.5" stroke-linecap="round"/><path d="M8 2 L15 7 L8 12" fill="none" stroke="#EF9F27" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>';
+return '<div class="chev">'+(dir==='rtl'?'<svg width="17" height="14" viewBox="0 0 17 14" style="transform:scaleX(-1)">'+p+'</svg>':'<svg width="17" height="14" viewBox="0 0 17 14">'+p+'</svg>')+'</div>';}
+function drop(){return '<svg width="26" height="34" viewBox="0 0 26 34"><path d="M13 2 V23" stroke="#EF9F27" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/><path d="M7 20 L13 30 L19 20" fill="none" stroke="#EF9F27" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';}
+var ART={'1':'art/n01.jpg','2':'art/n02.jpg','3':'art/n03.jpg','4':'art/n04.jpg','5':'art/n05.jpg','6':'art/n06.jpg','7':'art/n07.jpg','8':'art/n08.jpg','9':'art/n09.jpg','10':'art/n10.jpg','11':'art/n11.jpg','12':'art/n12.jpg','13':'art/n13.jpg','14':'art/n14.jpg','15':'art/n15.jpg','16':'art/n16.jpg','17':'art/n17.jpg','18':'art/n18.jpg','19':'art/n19.jpg','20':'art/n20.jpg','21':'art/n21.jpg','22':'art/n22.jpg','23':'art/n23.jpg','24':'art/n24.jpg','25':'art/n25.jpg','26':'art/n26.jpg','27':'art/n27.jpg','28':'art/n28.jpg','29':'art/n29.jpg','30':'art/n30.jpg','31':'art/n31.jpg','32':'art/n32.jpg','33':'art/n33.jpg','34':'art/n34.jpg','35':'art/n35.jpg','36':'art/n36.jpg','37':'art/n37.jpg','38':'art/n38.jpg','39':'art/n39.jpg','40':'art/n40.jpg','41':'art/n41.jpg','42':'art/n42.jpg','43':'art/n43.jpg','44':'art/n44.jpg','45':'art/n45.jpg','46':'art/n46.jpg','47':'art/n47.jpg','48':'art/n48.jpg','49':'art/n49.jpg','50':'art/n50.jpg','51':'art/n51.jpg','52':'art/n52.jpg','53':'art/n53.jpg','54':'art/n54.jpg','55':'art/n55.jpg','56':'art/n56.jpg','57':'art/n57.jpg','58':'art/n58.jpg','59':'art/n59.jpg','60':'art/n60.jpg','61':'art/n61.jpg','62':'art/n62.jpg','63':'art/n63.jpg','64':'art/n64.jpg','65':'art/n65.jpg','66':'art/n66.jpg','67':'art/n67.jpg','68':'art/n68.jpg','69':'art/n69.jpg','70':'art/n70.jpg','71':'art/n71.jpg','72':'art/n72.jpg','73':'art/n73.jpg','74':'art/n74.jpg','75':'art/n75.jpg','76':'art/n76.jpg','77':'art/n77.jpg','78':'art/n78.jpg','79':'art/n79.jpg','80':'art/n80.jpg','81':'art/n81.jpg'};
+function cardHTML(i){var p=D[i].split('|'),n=p[0],cat=p[1],nm=p[2],spec=p[3],c=C[cat];
+return '<div class="c" data-i="'+i+'" style="background:'+c[0]+(M[n]?';border-color:#FAC775':'')+'">'+(ART[n]?'<img class="art" src="'+ART[n]+'" alt="'+nm+'" loading="lazy">':'<svg class="art" viewBox="0 0 200 100">'+draw(spec,MOODBYCAT[cat])+'</svg>')+'<div class="foot"><span class="no" style="background:'+c[2]+';color:'+c[1]+';padding:1px 7px;border-radius:8px">'+n+'</span><span style="color:'+c[1]+'">'+nm+'</span></div></div>';}
+function show(i){nowI=i;var p=D[i].split('|'),n=p[0],cat=p[1],nm=p[2],story=p[4],c=C[cat],d=p[5],q=p[6],qn=p[7];
+dp.innerHTML='<span class="badge" style="background:'+c[2]+';color:'+c[1]+'">第'+n+'难 · '+c[3]+'</span><span class="ttl">'+nm+'</span>'
++'<div class="txt">'+story+'</div>'
++'<div class="tags"><span class="d">三重维度 · '+(DM[d]||'')+'</span><span class="i">议题 · '+(IM[q]||'')+'</span></div>'
++'<div class="qs">想一想：'+qn+'</div>'+'<div class="ch"><b>原著回目</b> · '+p[8]+'</div>'+'<div class="tts">'+'<button data-act="say">朗读本难</button>'+'<button data-act="all">连读全部</button>'+'<button data-act="stop">停止</button>'+'<span class="rt">语速 <b data-act="rate">1.0</b>×</span>'+'</div>';}
+var DM={"e": "外部威胁", "i": "内部动摇", "t": "诱惑考验"},IM={"y": "云路与本路", "m": "妖魔与心魔", "g": "个体与集体"};
+var DM={"e": "外部威胁", "i": "内部动摇", "t": "诱惑考验"},IM={"y": "云路与本路", "m": "妖魔与心魔", "g": "个体与集体"};
+rt.innerHTML='<div class="cap"><b>起点 · 长安</b><span>贞观年间，奉旨西行</span></div>';
+var per=4,rows=Math.ceil(D.length/per),r,k,i,idx,row,lk,html;
+for(r=0;r<rows;r++){var dir=(r%2===0)?'ltr':'rtl';idx=[];
+for(k=0;k<per;k++){i=r*per+k;if(i<D.length)idx.push(i);}
+if(dir==='rtl')idx.reverse();
+row=document.createElement('div');row.className='row';html='';
+for(k=0;k<per;k++){if(k)html+=chev(dir).replace('class="chev"',k<idx.length?'class="chev"':'class="chev hide"');
+html+=(k<idx.length)?cardHTML(idx[k]):'<div class="ph"></div>';}
+row.innerHTML=html;rt.appendChild(row);
+if(r<rows-1){lk=document.createElement('div');lk.className='link '+(dir==='ltr'?'right':'left');lk.innerHTML=drop();rt.appendChild(lk);}}
+var end=document.createElement('div');end.className='cap';end.innerHTML='<b>终点 · 灵山</b><span>取得真经，五圣成真</span>';rt.appendChild(end);
+rt.addEventListener('click',function(e){var el=e.target.closest('.c');if(!el)return;var ci=+el.getAttribute('data-i');
+if(ready&&lens[ci]!=null){len=lens[ci];playing=false;btnPP.textContent='▶ 播放';}
+show(ci);cards[ci]&&cards[ci].scrollIntoView({block:'center',behavior:'smooth'});});
+
+var stage=document.getElementById('stage'),ov=document.getElementById('ov');
+var btnPP=document.getElementById('pp'),btnRS=document.getElementById('rs'),btnFW=document.getElementById('fw'),sk=document.getElementById('sk'),stEl=document.getElementById('st');
+var cards=[],pts=[],lens=[],ticks=[],total=1,len=0,cur=-1,speed=2,playing=false,ready=false,lastT=0,lastScroll=0,path=null,trail=null,mk=null,FOLLOW=true;
+
+function build(){
+if(!stage||typeof stage.getBoundingClientRect!=='function')return;
+cards=[].slice.call(rt.querySelectorAll('.c')).sort(function(a,b){return (+a.getAttribute('data-i'))-(+b.getAttribute('data-i'));});
+if(!cards.length)return;
+var sr=stage.getBoundingClientRect();
+pts=cards.map(function(c){var r=c.getBoundingClientRect();
+return {x:r.left-sr.left+r.width/2,y:r.top-sr.top+8};});
+var w=sr.width,h=sr.height;
+ov.setAttribute('width',w);ov.setAttribute('height',h);ov.setAttribute('viewBox','0 0 '+w+' '+h);
+var d='M'+pts[0].x.toFixed(1)+' '+pts[0].y.toFixed(1),i;
+lens=[0];
+for(i=1;i<pts.length;i++){var a=pts[i-1],p=pts[i];
+d+=' L'+p.x.toFixed(1)+' '+p.y.toFixed(1);
+lens.push(lens[i-1]+Math.sqrt((p.x-a.x)*(p.x-a.x)+(p.y-a.y)*(p.y-a.y)));}
+total=lens[lens.length-1];
+ov.innerHTML='<path d="'+d+'" fill="none" stroke="#EF9F27" stroke-width="2" stroke-dasharray="6 6" opacity="0.5"/>'
++'<path id="trl" d="'+d+'" fill="none" stroke="#FAC775" stroke-width="3" stroke-linecap="round"/>'
++ticksHTML(pts)
++'<g id="mk"><ellipse cx="0" cy="6" rx="13" ry="4" fill="#FAC775" opacity="0.22"/><circle cx="0" cy="-12" r="12" fill="#1C1C1B" stroke="#FAC775" stroke-width="1"/><g transform="translate(0,1)">'+((MOOD="c"),I.monk(0,0,0.8)).replace(/^<g[^>]*>|<\/g>$/g,'')+'</g></g>';
+trail=ov.querySelector('#trl');mk=ov.querySelector('#mk');
+ticks=[].slice.call(ov.querySelectorAll('.tk'));
+ready=true;render();}
+function ticksHTML(p){var s='',i;for(i=0;i<p.length;i++){s+='<circle class="tk" cx="'+p[i].x.toFixed(1)+'" cy="'+p[i].y.toFixed(1)+'" r="3" fill="#1C1C1B" stroke="#EF9F27" stroke-width="1"/>';}return s;}
+function render(){
+if(!ready)return;
+if(!trail||typeof trail.getPointAtLength!=='function')return;
+var pt=null;
+try{pt=trail.getPointAtLength(len);}catch(e){return;}
+if(!pt)return;
+mk.setAttribute('transform','translate('+pt.x.toFixed(1)+','+(pt.y.toFixed(1)-22)+')');
+trail.setAttribute('stroke-dasharray',len.toFixed(1)+' '+(total+30));
+var i=0;while(i+1<lens.length&&lens[i+1]<=len)i++;
+if(i!==cur){cur=i;
+for(var k=0;k<cards.length;k++){cards[k].classList.toggle('now',k===i);cards[k].classList.toggle('seen',k<i);cards[k].classList.toggle('done',k<i);}
+for(var j=0;j<ticks.length;j++){ticks[j].setAttribute('fill',j<=i?'#FAC775':'#1C1C1B');}
+show(i);
+if(FOLLOW&&cards[i]&&typeof cards[i].scrollIntoView==='function'){cards[i].scrollIntoView({block:'center',behavior:playing?'smooth':'auto'});}}
+stEl.textContent='第 '+(i+1)+' 难 / 81';
+if(document.activeElement!==sk)sk.value=Math.round(len/total*1000);}
+var HASH=(typeof location!=='undefined'&&location.hash)?location.hash:'';
+var NSCROLL=/noscroll=1/.test(HASH);
+FOLLOW=!NSCROLL;
+if(!FOLLOW&&btnFW)btnFW.classList.remove('on');
+btnFW.onclick=function(){FOLLOW=!FOLLOW;btnFW.classList.toggle('on',FOLLOW);};
+function loop(t){requestAnimationFrame(loop);
+if(!lastT)lastT=t;var dt=(t-lastT)/1000;lastT=t;if(dt>0.12)dt=0.12;
+if(playing&&ready&&total>1){len+=dt*(total/(81*1.05))*speed;
+if(len>=total){len=total;playing=false;btnPP.textContent='▶ 重播';}
+render();}}
+btnPP.onclick=function(){if(ready&&len>=total){len=0;cur=-1;}
+playing=!playing;btnPP.textContent=playing?'⏸ 暂停':'▶ 播放';if(playing)lastT=0;};
+btnRS.onclick=function(){len=0;cur=-1;playing=true;btnPP.textContent='⏸ 暂停';render();};
+sk.oninput=function(){if(!ready)return;playing=false;btnPP.textContent='▶ 播放';len=sk.value/1000*total;render();};
+[].slice.call(document.querySelectorAll('.sp')).forEach(function(b){b.onclick=function(){
+[].slice.call(document.querySelectorAll('.sp')).forEach(function(x){x.classList.remove('on');});
+b.classList.add('on');speed=+b.getAttribute('data-s');};});
+var rzT=null;
+window.addEventListener('resize',function(){if(rzT)clearTimeout(rzT);rzT=setTimeout(function(){var ratio=total>1?len/total:0;build();len=ratio*total;render();},200);});
+show(0);
+setTimeout(function(){build();
+var m=HASH.match(/s=(\d+)/);
+if(m&&ready){var nz=Math.min(81,Math.max(1,+m[1]));len=lens[nz-1];cur=-1;render();}
+if(/play=1/.test(HASH)){playing=true;btnPP.textContent='⏸ 暂停';}
+},80);
+requestAnimationFrame(loop);
+
+var nowI=0,HAS_TTS=(typeof speechSynthesis!=='undefined'&&typeof SpeechSynthesisUtterance!=='undefined'),rate=1.0,ttsOn=false;
+function ttsText(i){var p=D[i].split('|');
+return '第'+p[0]+'难，'+p[2]+'。'+p[4]+'。三重维度：'+(DM[p[5]]||'')+'。关联议题：'+(IM[p[6]]||'')+'。想一想：'+p[7];}
+function ttsStop(){ttsOn=false;if(HAS_TTS)speechSynthesis.cancel();}
+function ttsSay(i,cb){if(!HAS_TTS)return;speechSynthesis.cancel();
+var u=new SpeechSynthesisUtterance(ttsText(i));u.lang='zh-CN';u.rate=rate;u.pitch=1;
+var vs=speechSynthesis.getVoices()||[],zh=null,k;
+for(k=0;k<vs.length;k++){if(/zh|Chinese/i.test(vs[k].lang)){zh=vs[k];break;}}
+if(zh)u.voice=zh;
+u.onend=function(){if(cb&&ttsOn)cb();};
+speechSynthesis.speak(u);}
+function ttsAll(i){if(!HAS_TTS)return;ttsOn=true;show(i);
+ttsSay(i,function(){if(!ttsOn)return;if(i+1<D.length)ttsAll(i+1);else ttsOn=false;});}
+if(HAS_TTS&&document.getElementById('dp')){
+document.getElementById('dp').addEventListener('click',function(e){
+var t=e.target,act=t&&t.getAttribute?t.getAttribute('data-act'):null;
+if(!act)return;
+if(act==='say'){ttsOn=false;ttsSay(nowI);}
+else if(act==='all'){ttsAll(nowI);}
+else if(act==='stop'){ttsStop();}
+else if(act==='rate'){rate=rate>=1.4?0.8:+(rate+0.2).toFixed(1);t.textContent=rate.toFixed(1);}
+});}
+</script>
+</body>
+</html>
